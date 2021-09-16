@@ -5,14 +5,38 @@
 
     <data>
 
+        <variable
+            name="totalImage"
+            type="String" />
+
+        <variable
+            name="totalVideo"
+            type="String" />
+
+        <variable
+            name="totalMusic"
+            type="String" />
+
+        <variable
+            name="freeSpace"
+            type="String" />
+
+        <variable
+            name="useSpace"
+            type="String" />
+
+        <variable
+            name="totalSpace"
+            type="String" />
     </data>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray"
         android:orientation="vertical"
-        tools:context=".ui.home.HomeFragment">
+        tools:context=".HomeFragment">
 
         <Toolbar
             android:id="@+id/toolbar_cagory"
@@ -41,6 +65,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/linear_images"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -56,17 +81,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/gray"
-                        android:text="Images"
+                        android:text="@{totalImage}"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Images"
+                        android:text="@string/images"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_video"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -82,17 +108,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/gray"
-                        android:text="Images"
+                        android:text="@{totalVideo}"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Videos"
+                        android:text="@string/videos"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_music"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -108,17 +135,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/gray"
-                        android:text="Images"
+                        android:text="@{totalMusic}"
                         android:textColor="@color/black" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Music"
+                        android:text="@string/music"
                         android:textColor="@color/black" />
                 </LinearLayout>
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -129,6 +154,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/linear_compresser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -150,11 +176,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Compressed"
+                        android:text="@string/compressed"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_favorite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -176,11 +203,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Favorites"
+                        android:text="@string/favorites"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_app"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -202,11 +230,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Apps"
+                        android:text="@string/apps"
                         android:textColor="@color/black" />
                 </LinearLayout>
-
-
             </LinearLayout>
 
             <LinearLayout
@@ -217,6 +243,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/linear_document"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -238,11 +265,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Documents"
+                        android:text="@string/documents"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_download"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -264,11 +292,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Downloads"
+                        android:text="@string/downloads"
                         android:textColor="@color/black" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/linear_recent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
@@ -290,18 +319,18 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Recent"
+                        android:text="@string/recent"
                         android:textColor="@color/black" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginHorizontal="5dp"
-            android:id="@id/linear_layout_container_2"
+            android:id="@+id/linear_layout_container_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linear_layout_container_1"
+            android:layout_marginHorizontal="5dp"
             android:layout_marginTop="6dp"
             android:background="@color/white"
             android:orientation="vertical">
@@ -316,103 +345,161 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="120dp" />
+            <FrameLayout
+                android:layout_width="150dp"
+                android:layout_height="100dp">
+
+                <ProgressBar
+                    android:id="@+id/progress_storage"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:indeterminate="false" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@{freeSpace}"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@{useSpace}"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@{totalSpace}"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@id/linear_layout_container_3"
-            android:layout_marginHorizontal="5dp"
+            android:id="@+id/linear_layout_container_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_below="@id/linear_layout_container_2"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_sdcard" />
+                    android:layout_marginStart="5dp"
+                    android:src="@mipmap/ic_launcher_sd_card" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Storage analyzer"
-                    android:layout_marginHorizontal="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/storage_analyzer"
                     android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_sdcard" />
+                    android:layout_marginStart="5dp"
+                    android:src="@mipmap/ic_launcher_recycle_bin" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Storage analyzer"
-                    android:layout_marginHorizontal="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/recycle_bin"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:id="@id/linear_layout_container_4"
-            android:layout_marginHorizontal="5dp"
+            android:id="@+id/linear_layout_container_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:layout_below="@id/linear_layout_container_3"
+            android:layout_marginHorizontal="5dp"
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_sdcard" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:src="@mipmap/ic_launcher_pc_file" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Storage analyzer"
-                    android:layout_marginHorizontal="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/pc_file_transfer"
                     android:textColor="@color/black" />
             </LinearLayout>
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_sdcard" />
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:src="@mipmap/ic_launcher_hidden_file" />
+
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Storage analyzer"
-                    android:layout_marginHorizontal="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/hidden_cabinet"
                     android:textColor="@color/black" />
             </LinearLayout>
         </LinearLayout>
+
 
     </RelativeLayout>
 </layout>
